@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "pythonproject"
+name = "flux-gha-app"
 version = "0.1.0"
 description = ""
 authors = ["Dmitry Kuleshov <vdksystem@gmail.com>"]
