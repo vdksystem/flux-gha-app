@@ -31,8 +31,7 @@ jobs:
       - changes
     if: ${{ needs.changes.outputs.charts == 'true' }}
     steps:
-      - uses: actions/checkout@v3  # Temporary, until common action would be pushed to central repo
-      - uses: ./workflows/actions/helm-lint-test
+      - uses: vdksystem/flux-gha-actions/helm-lint-test
 
   app-test:
     runs-on: ubuntu-latest
@@ -40,5 +39,4 @@ jobs:
       - changes
     if: ${{ needs.changes.outputs.app == 'true' }}
     steps:
-      - uses: actions/checkout@v3  # Temporary, until common action would be pushed to central repo
-      - uses: ./workflows/actions/app-test
+      - uses: vdksystem/flux-gha-actions/app-test@main
