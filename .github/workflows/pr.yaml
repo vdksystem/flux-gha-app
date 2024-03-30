@@ -58,12 +58,8 @@ jobs:
       (needs.app-test.result == 'success' || needs.app-test.result == 'skipped') &&
       ${{ needs.changes.outputs.charts == 'true' }}
     steps:
-      - if: ${{ needs.app-test.result == 'success' }}
-        id: tag
-        run: |
-          echo "tag=$GITHUB_SHA" >> "$GITHUB_OUTPUT"
       - uses: vdksystem/flux-gha-actions/helm-lint-test@main
         with:
-          tag: ${{ steps.tag.outputs.tag }}
+          tag: ${{ needs.app-test.outputs.tag }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
