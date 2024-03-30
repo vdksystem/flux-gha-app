@@ -54,4 +54,4 @@ jobs:
       - uses: vdksystem/flux-gha-actions/app-test@main
       - uses: vdksystem/flux-gha-actions/docker-build-push@main
         with:
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.DOCKER_TOKEN }}
