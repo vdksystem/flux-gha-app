@@ -8,7 +8,7 @@ image:
   repository: ghcr.io/vdksystem/flux-gha-app
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "main-501648a-1711791953"
+  tag: ""
 
 imagePullSecrets:
   - name: regcred

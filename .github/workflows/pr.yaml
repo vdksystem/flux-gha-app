@@ -39,8 +39,6 @@ jobs:
     needs:
       - changes
     if: ${{ needs.changes.outputs.app == 'true' }}
-    outputs:
-      tag: ${{ steps.build.outputs.tag }}
     steps:
       - uses: vdksystem/flux-gha-actions/app-test@main
       - uses: vdksystem/flux-gha-actions/docker-build-push@main
@@ -60,8 +58,12 @@ jobs:
       (needs.app-test.result == 'success' || needs.app-test.result == 'skipped') &&
       ${{ needs.changes.outputs.charts == 'true' }}
     steps:
+      - if: ${{ needs.app-test.result == 'success' }}
+        id: tag
+        run: |
+          echo "tag=$GITHUB_SHA" >> "$GITHUB_OUTPUT"
       - uses: vdksystem/flux-gha-actions/helm-lint-test@main
         with:
-          tag: ${{ needs.app-test.outputs.tag }}
+          tag: ${{ steps.tag.outputs.tag }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
