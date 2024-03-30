@@ -6,6 +6,22 @@ entries:
       team: adimen
     apiVersion: v2
     appVersion: 0.1.0
+    created: "2024-03-30T21:54:26.629944706Z"
+    description: A Helm chart for Kubernetes
+    digest: ee0a23700c8e354155d046c44a5109d995630886bee96063fe37050bfbd75a83
+    maintainers:
+    - email: vdksystem@gmail.com
+      name: vdksystem
+    name: flux-gha-app
+    type: application
+    urls:
+    - https://github.com/vdksystem/flux-gha-app/releases/download/flux-gha-app-0.1.6/flux-gha-app-0.1.6.tgz
+    version: 0.1.6
+  - annotations:
+      project: flux-gha-app
+      team: adimen
+    apiVersion: v2
+    appVersion: 0.1.0
     created: "2024-03-30T21:45:53.44771775Z"
     description: A Helm chart for Kubernetes
     digest: 55e215877f255f35e3c8c3000271a7145407ddc788b3909e3d23ac10309a107e
@@ -17,4 +33,4 @@ entries:
     urls:
     - https://github.com/vdksystem/flux-gha-app/releases/download/flux-gha-app-0.1.5/flux-gha-app-0.1.5.tgz
     version: 0.1.5
-generated: "2024-03-30T21:45:53.44772862Z"
+generated: "2024-03-30T21:54:26.629953513Z"
