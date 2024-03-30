@@ -44,7 +44,7 @@ jobs:
       - uses: vdksystem/flux-gha-actions/docker-build-push@main
         id: build
         with:
-          password: ${{ secrets.DOCKER_TOKEN }}
+          password: ${{ secrets.GITHUB_TOKEN }}
   helm-test:
     runs-on: ubuntu-latest
     needs:
