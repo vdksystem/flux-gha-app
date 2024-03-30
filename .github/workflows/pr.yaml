@@ -50,7 +50,7 @@ jobs:
     needs:
       - changes
       - app-test
-    if: ${{ always() && !cancelled() && needs.app-test.result == 'success' && needs.changes.outputs.charts == 'true' }}
+    if: ${{ always() && !cancelled() && (needs.app-test.result == 'success' || needs.app-test.result == 'skipped' ) && needs.changes.outputs.charts == 'true' }}
     steps:
       - uses: vdksystem/flux-gha-actions/helm-lint-test@main
         with:
