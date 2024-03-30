@@ -31,7 +31,7 @@ jobs:
       - changes
     if: ${{ needs.changes.outputs.charts == 'true' }}
     steps:
-      - uses: vdksystem/flux-gha-actions/helm-lint-test
+      - uses: vdksystem/flux-gha-actions/helm-lint-test@main
 
   app-test:
     runs-on: ubuntu-latest
