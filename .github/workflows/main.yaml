@@ -21,6 +21,7 @@ jobs:
       app: ${{ steps.filter.outputs.app }}
       charts: ${{ steps.filter.outputs.charts }}
     steps:
+      - uses: actions/checkout@v3
       - uses: dorny/paths-filter@v2
         id: filter
         with:
