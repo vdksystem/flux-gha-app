@@ -37,8 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - changes
-    permissions:
-      packages: read
+    permissions: read-all
     if: ${{ needs.changes.outputs.charts == 'true' }}
     steps:
       - uses: vdksystem/flux-gha-actions/helm-lint-test@main
