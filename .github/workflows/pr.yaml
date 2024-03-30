@@ -17,5 +17,10 @@ jobs:
         filters: |
           charts:
             - 'charts/**'
-    - if: steps.changes.outputs.charts == 'true'
-      uses: ./workflows/actions/helm-lint-test
+  helm-test:
+    runs-on: ubuntu-latest
+    needs:
+      - changes
+    if: ${{ needs.changes.outputs.charts == 'true' }}
+    steps:
+      - uses: ./workflows/actions/helm-lint-test
