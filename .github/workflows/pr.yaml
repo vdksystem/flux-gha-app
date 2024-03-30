@@ -31,6 +31,7 @@ jobs:
       - changes
     if: ${{ needs.changes.outputs.charts == 'true' }}
     steps:
+      - uses: actions/checkout@v3  # Temporary, until common action would be pushed to central repo
       - uses: ./workflows/actions/helm-lint-test
 
   app-test:
@@ -39,4 +40,5 @@ jobs:
       - changes
     if: ${{ needs.changes.outputs.app == 'true' }}
     steps:
+      - uses: actions/checkout@v3  # Temporary, until common action would be pushed to central repo
       - uses: ./workflows/actions/app-test
