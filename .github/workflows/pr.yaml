@@ -1,0 +1,42 @@
+name: CI pipeline for PR
+on:
+  pull_request:
+    branches:
+    - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      app: ${{ steps.filter.outputs.app }}
+      charts: ${{ steps.filter.outputs.charts }}
+    steps:
+    - uses: dorny/paths-filter@v2
+      id: filter
+      with:
+        filters: |
+          charts:
+            - 'charts/**'
+          app:
+            - 'Dockerfile'
+            - 'app/**'
+            - poetry.lock
+            - pyproject.toml
+  helm-test:
+    runs-on: ubuntu-latest
+    needs:
+      - changes
+    if: ${{ needs.changes.outputs.charts == 'true' }}
+    steps:
+      - uses: vdksystem/flux-gha-actions/helm-lint-test@main
+
+  app-test:
+    runs-on: ubuntu-latest
+    needs:
+      - changes
+    if: ${{ needs.changes.outputs.app == 'true' }}
+    steps:
+      - uses: vdksystem/flux-gha-actions/app-test@main
