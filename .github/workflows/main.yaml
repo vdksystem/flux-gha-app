@@ -87,4 +87,6 @@ jobs:
       - changes
     if: ${{ needs.changes.outputs.charts == 'true' }}
     steps:
-      - uses: vdksystem/flux-gha-actions/helm-lint-test@main
+      - uses: vdksystem/flux-gha-actions/helm-release@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
