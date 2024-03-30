@@ -39,6 +39,8 @@ jobs:
     needs:
       - changes
     if: ${{ needs.changes.outputs.app == 'true' }}
+    outputs:
+      tag: ${{ steps.build.outputs.tag }}
     steps:
       - uses: vdksystem/flux-gha-actions/app-test@main
       - uses: vdksystem/flux-gha-actions/docker-build-push@main
