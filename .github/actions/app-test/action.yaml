@@ -1,0 +1,14 @@
+name: Application testing
+description: "This action performs standard application CI logic"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Test
+      run: |
+        echo "running test logic"
