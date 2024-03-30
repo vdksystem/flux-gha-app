@@ -1,12 +1,14 @@
 [tool.poetry]
 name = "flux-gha-app"
-version = "0.1.0"
+version = "0.1.1"
 description = ""
 authors = ["Dmitry Kuleshov <vdksystem@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+fastapi = "^0.109.0"
+uvicorn = "^0.27.0.post1"
 
 
 [tool.poetry.group.dev.dependencies]
