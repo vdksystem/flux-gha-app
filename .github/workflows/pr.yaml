@@ -40,6 +40,9 @@ jobs:
     if: ${{ needs.changes.outputs.charts == 'true' }}
     steps:
       - uses: vdksystem/flux-gha-actions/helm-lint-test@main
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
   app-test:
     runs-on: ubuntu-latest
