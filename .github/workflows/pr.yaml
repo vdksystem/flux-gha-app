@@ -1,0 +1,21 @@
+name: CI pipeline for PR
+on:
+  pull_request:
+    branches:
+    - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: dorny/paths-filter@v2
+      id: changes_charts
+      with:
+        filters: |
+          charts:
+            - 'charts/**'
+    - if: steps.changes.outputs.charts == 'true'
+      uses: ./workflows/actions/helm-lint-test
