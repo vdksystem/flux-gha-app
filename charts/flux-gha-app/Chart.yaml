@@ -5,7 +5,7 @@ maintainers:
   - name: vdksystem
     email: vdksystem@gmail.com
 type: application
-version: 0.1.4
+version: 0.1.5
 appVersion: "0.1.0"
 annotations:
   team: "adimen"
