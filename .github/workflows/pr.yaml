@@ -15,7 +15,7 @@ jobs:
       charts: ${{ steps.filter.outputs.charts }}
     steps:
     - uses: dorny/paths-filter@v2
-      id: changes_charts
+      id: filter
       with:
         filters: |
           charts:
