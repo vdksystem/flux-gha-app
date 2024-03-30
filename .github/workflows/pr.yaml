@@ -10,6 +10,9 @@ on:
 jobs:
   changes:
     runs-on: ubuntu-latest
+    outputs:
+      app: ${{ steps.filter.outputs.app }}
+      charts: ${{ steps.filter.outputs.charts }}
     steps:
     - uses: dorny/paths-filter@v2
       id: changes_charts
