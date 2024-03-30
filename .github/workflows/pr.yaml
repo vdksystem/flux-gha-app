@@ -46,7 +46,6 @@ jobs:
         with:
           password: ${{ secrets.DOCKER_TOKEN }}
       - run: echo "${{ steps.build.outputs.tag }}"
-      - run: echo "${{ steps.build.outputs }}"
   helm-test:
     runs-on: ubuntu-latest
     needs:
