@@ -22,7 +22,7 @@ jobs:
       app: ${{ steps.filter.outputs.app }}
       charts: ${{ steps.filter.outputs.charts }}
     steps:
-    - uses: dorny/paths-filter@v2
+    - uses: dorny/paths-filter@v3
       id: filter
       with:
         filters: |
