@@ -67,7 +67,6 @@ jobs:
   build:
     needs:
       - test
-      - sonarqube
     runs-on: ubuntu-latest
     permissions:
       contents: read
