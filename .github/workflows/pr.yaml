@@ -87,7 +87,7 @@ jobs:
       - uses: docker/metadata-action@v5
         id: meta
         with:
-          images: ${{ steps.ecr.outputs.registry }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.IMAGE_NAME }}
           tags: |
             type=sha,enable=true,priority=100,prefix=${{ github.head_ref }}-,suffix=-{{date 'X'}},format=short
             type=sha,enable=true,priority=100,prefix=${{ github.event.pull_request.user.login }}-,suffix=-{{date 'X'}},format=short,enable=${{ github.event_name == 'pull_request'}}
