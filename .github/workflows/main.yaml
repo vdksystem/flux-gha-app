@@ -18,7 +18,7 @@ jobs:
   changes:
     runs-on: ubuntu-latest
     outputs:
-      app: ${{ steps.filter.outputs.app }}
+      src: ${{ steps.filter.outputs.app }}
       charts: ${{ steps.filter.outputs.charts }}
     steps:
       - uses: actions/checkout@v3
