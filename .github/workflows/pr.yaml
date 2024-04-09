@@ -28,9 +28,9 @@ jobs:
         filters: |
           charts:
             - 'charts/**'
-          app:
+          src:
             - 'Dockerfile'
-            - 'app/**'
+            - 'src/**'
             - poetry.lock
             - pyproject.toml
 

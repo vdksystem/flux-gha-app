@@ -14,6 +14,7 @@ async def root():
 async def say_hello(name: str):
     return {"message": f"Hello {name} from flux-gha-app demo project"}
 
+
 @app.get("/get_node")
 async def get_node():
     node = os.environ.get("NODE_NAME", "UNKNOWN")

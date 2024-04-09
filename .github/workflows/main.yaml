@@ -30,7 +30,7 @@ jobs:
               - 'charts/**'
             src:
               - 'Dockerfile'
-              - 'app/**'
+              - 'src/**'
               - poetry.lock
               - pyproject.toml
   test:
