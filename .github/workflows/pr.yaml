@@ -89,7 +89,7 @@ jobs:
         with:
           images: ${{ steps.ecr.outputs.registry }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=sha,enable=true,priority=100,prefix={{branch}}-,suffix=-{{date 'X'}},format=short
+            type=sha,enable=true,priority=100,prefix={{ github.head_ref }}-,suffix=-{{date 'X'}},format=short
             type=sha,format=long
       - name: Build and push Docker image
         id: build-and-push
