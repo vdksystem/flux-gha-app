@@ -17,7 +17,7 @@ async def say_hello(name: str):
 
 @app.get("/get_node")
 async def get_node():
-    """Some docs"""
+    """Some docs about this"""
     node = os.environ.get("NODE_NAME", "UNKNOWN")
     return {"message": f"Pod is running on {node}"}
 
