@@ -28,7 +28,7 @@ jobs:
           filters: |
             charts:
               - 'charts/**'
-            app:
+            src:
               - 'Dockerfile'
               - 'app/**'
               - poetry.lock

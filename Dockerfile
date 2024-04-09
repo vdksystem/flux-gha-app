@@ -7,7 +7,7 @@ ENV POETRY_NO_INTERACTION=1 \
     POETRY_VIRTUALENVS_CREATE=1 \
     POETRY_CACHE_DIR=/tmp/poetry_cache
 
-WORKDIR /app
+WORKDIR /src
 
 COPY pyproject.toml poetry.lock ./
 
@@ -15,13 +15,13 @@ RUN --mount=type=cache,target=$POETRY_CACHE_DIR poetry install --without dev --n
 
 FROM python:3.11-slim-buster as runtime
 
-WORKDIR /app
+WORKDIR /src
 
-ENV VIRTUAL_ENV=/app/.venv \
-    PATH="/app/.venv/bin:$PATH"
+ENV VIRTUAL_ENV=/src/.venv \
+    PATH="/src/.venv/bin:$PATH"
 
 COPY --from=builder ${VIRTUAL_ENV} ${VIRTUAL_ENV}
 MAINTAINER vdksystem
-COPY app/ .
+COPY src/ .
 
 CMD ["uvicorn", "main:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "8000"]
