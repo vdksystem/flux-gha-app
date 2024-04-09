@@ -1,0 +1,37 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy app to Development
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: altinukshini/deployment-action@releases/v1
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          token: "${{ github.token }}"
+          environment: Development
+      - name: Deploy my app
+        run: |
+          echo "Deploy to Development"
+
+      - name: Update deployment status (success)
+        if: success()
+        uses: altinukshini/deployment-status@releases/v1
+        with:
+          token: "${{ github.token }}"
+          state: "success"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: altinukshini/deployment-status@releases/v1
+        with:
+          token: "${{ github.token }}"
+          state: "failure"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
