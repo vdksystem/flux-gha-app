@@ -67,9 +67,6 @@ jobs:
     needs:
       - test
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      id-token: write
     steps:
       - name: Checking out
         uses: actions/checkout@v3
