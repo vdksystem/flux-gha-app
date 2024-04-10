@@ -23,7 +23,7 @@ jobs:
           environment: Development
       - name: Deploy my app
         run: |
-          echo "Deploy to Development"
+          echo ${{ github.event.inputs }}
 
       - name: Update deployment status (success)
         if: success()
