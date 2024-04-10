@@ -22,6 +22,11 @@ async def get_node():
     return {"message": f"Pod is running on {node}"}
 
 
+@app.get("/release")
+async def get_release():
+    return {"message": f"Something about release"}
+
+
 @app.get("/health")
 async def health():
     return {"status": "OK"}
