@@ -20,8 +20,6 @@ spec:
         app.kubernetes.io/name: flux-gha-app
         app.kubernetes.io/instance: flux-gha-app
     spec:
-      imagePullSecrets:
-        - name: regcred
       serviceAccountName: flux-gha-app
       containers:
         - name: flux-gha-app

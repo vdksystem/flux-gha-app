@@ -24,7 +24,7 @@ jobs:
       - name: Deploy my app
         run: |
           echo ${{ github.sha }}
-          env | grep ^GITHUB
+          
 
       - name: Update deployment status (success)
         if: success()
