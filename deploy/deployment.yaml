@@ -3,11 +3,9 @@ kind: Deployment
 metadata:
   name: flux-gha-app
   labels:
-    helm.sh/chart: flux-gha-app-0.1.6
     app.kubernetes.io/name: flux-gha-app
     app.kubernetes.io/instance: flux-gha-app
-    app.kubernetes.io/version: "0.1.0"
-    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/version: "0.1.4"
 spec:
   replicas: 1
   selector:
