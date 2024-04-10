@@ -23,7 +23,7 @@ jobs:
           environment: Development
       - name: Deploy my app
         run: |
-          echo ${{ github.event }}
+          echo ${{ github.sha }}
           env | grep ^GITHUB
 
       - name: Update deployment status (success)
