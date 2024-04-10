@@ -23,7 +23,9 @@ jobs:
           environment: Development
       - name: Deploy my app
         run: |
-          echo ${{ github.event.inputs }}
+          echo ${{ github.event }}
+          env | grep ^GITHUB
+          
 
       - name: Update deployment status (success)
         if: success()
