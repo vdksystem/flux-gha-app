@@ -36,7 +36,7 @@ jobs:
         id: promote
         shell: bash
         run: |
-          docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:sha-${{ github.sha }}
           
           TAGS=(${{ steps.meta.outputs.tags }})        
           for value in "${TAGS[@]}"
