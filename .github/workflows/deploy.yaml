@@ -25,7 +25,6 @@ jobs:
         run: |
           echo ${{ github.event }}
           env | grep ^GITHUB
-          
 
       - name: Update deployment status (success)
         if: success()
