@@ -12,7 +12,7 @@ async def root():
 
 @app.get("/hello/{name}")
 async def say_hello(name: str):
-    return {"message": f"Hello {name} from flux-gha-app demo project"}
+    return {"message": f"Hello {name} from flux-gha-app demo project devops"}
 
 
 @app.get("/get_node")
